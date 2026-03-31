@@ -18,7 +18,7 @@ func main() {
 	flag.Parse()
 
 	opts := providerserver.ServeOpts{
-		Address: "registry.terraform.io/chkp-haimk/checkpoint-workforce-ai", // TODO: Replace with CheckPointSW before GA
+		Address: "registry.terraform.io/CheckPointSW/checkpoint-workforce-ai",
 		// Provider type name: checkpoint_workforce_ai
 		Debug:   debug,
 	}

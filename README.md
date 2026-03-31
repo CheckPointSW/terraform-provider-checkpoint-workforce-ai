@@ -1,9 +1,5 @@
-# Check Point - Workforce AI Terraform Provider (DRAFT)
-
-> **This is a draft / pre-release version for testing purposes only. Not for production use.**
-
-<!-- TODO: Replace chkp-haimk with CheckPointSW org before GA release -->
-[![License](https://img.shields.io/github/license/chkp-haimk/terraform-provider-checkpoint-workforce-ai.svg?style=plastic)](https://github.com/chkp-haimk/terraform-provider-checkpoint-workforce-ai/blob/main/LICENSE) [![Tests](https://github.com/chkp-haimk/terraform-provider-checkpoint-workforce-ai/actions/workflows/test.yml/badge.svg)](https://github.com/chkp-haimk/terraform-provider-checkpoint-workforce-ai/actions/workflows/test.yml) [![Terraform Registry](https://img.shields.io/badge/terraform-registry-blueviolet.svg?style=plastic)](https://registry.terraform.io/providers/chkp-haimk/checkpoint-workforce-ai/latest)
+# Check Point - Workforce AI Terraform Provider
+[![License](https://img.shields.io/github/license/CheckPointSW/terraform-provider-checkpoint-workforce-ai.svg?style=plastic)](https://github.com/CheckPointSW/terraform-provider-checkpoint-workforce-ai/blob/main/LICENSE) [![Tests](https://github.com/CheckPointSW/terraform-provider-checkpoint-workforce-ai/actions/workflows/test.yml/badge.svg)](https://github.com/CheckPointSW/terraform-provider-checkpoint-workforce-ai/actions/workflows/test.yml) [![Terraform Registry](https://img.shields.io/badge/terraform-registry-blueviolet.svg?style=plastic)](https://registry.terraform.io/providers/CheckPointSW/checkpoint-workforce-ai/latest)
 
 This is the Terraform provider for managing **Check Point Workforce AI** and **Check Point Browse Security** policies as code.
 
@@ -17,7 +13,7 @@ Add the provider to your Terraform configuration:
 terraform {
   required_providers {
     cpwai = {
-      source  = "chkp-haimk/checkpoint-workforce-ai" # TODO: Replace with CheckPointSW/checkpoint-workforce-ai before GA
+      source  = "CheckPointSW/checkpoint-workforce-ai"
       version = "~> 1.0"
     }
   }
@@ -75,8 +71,7 @@ For more information, see [Infinity Portal Administration Guide](https://sc1.che
 terraform {
   required_providers {
     cpwai = {
-      source  = "chkp-haimk/checkpoint-workforce-ai" # TODO: Replace with CheckPointSW/checkpoint-workforce-ai before GA
-      version = "~> 1.0"
+      source  = "CheckPointSW/checkpoint-workforce-ai"      version = "~> 1.0"
     }
   }
 }
@@ -184,8 +179,7 @@ terraform apply
 
 ## Report Bug
 
-<!-- TODO:  Replace chkp-haimk with CheckPointSW org before GA release -->
-In case of an issue or a bug found in the provider, please open an [issue](https://github.com/chkp-haimk/terraform-provider-checkpoint-workforce-ai/issues).
+In case of an issue or a bug found in the provider, please open an [issue](https://github.com/CheckPointSW/terraform-provider-checkpoint-workforce-ai/issues).
 
 ## Contributors
 - Haim Kastner - [haimk@checkpoint.com](mailto:haimk@checkpoint.com)

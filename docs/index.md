@@ -1,8 +1,4 @@
-# Check Point Workforce AI Provider (DRAFT)
-
-> **This is a draft / pre-release version for testing purposes only. Not for production use.**
-
-<!-- TODO: Replace chkp-haimk with CheckPointSW org before GA release -->
+# Check Point Workforce AI Provider
 The `checkpoint-workforce-ai` provider manages security policies for **Workforce AI** and **Browse Security** products via the Check Point Infinity Portal API.
 
 ## Example Usage
@@ -11,7 +7,7 @@ The `checkpoint-workforce-ai` provider manages security policies for **Workforce
 terraform {
   required_providers {
     cpwai = {
-      source  = "chkp-haimk/checkpoint-workforce-ai" # TODO: Replace with CheckPointSW/checkpoint-workforce-ai before GA
+      source  = "CheckPointSW/checkpoint-workforce-ai"
       version = "~> 1.0"
     }
   }

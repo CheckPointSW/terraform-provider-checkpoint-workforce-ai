@@ -34,7 +34,7 @@ Create a `main.tf` file:
 terraform {
   required_providers {
     cpwai = {
-      source  = "chkp-haimk/checkpoint-workforce-ai" # TODO: Replace with CheckPointSW/checkpoint-workforce-ai before GA
+      source  = "CheckPointSW/checkpoint-workforce-ai"
       version = "~> 1.0"
     }
   }
