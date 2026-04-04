@@ -80,12 +80,12 @@ policy = jsonencode({
 
 | Value | Description |
 |-------|-------------|
-| `prevent` | Block the action entirely |
-| `ask` | Prompt the user for confirmation |
-| `redact` | Redact the sensitive data and allow |
-| `detect` | Allow but log the detection |
-| `allow` | Allow without restriction |
-| `block` | Block the action entirely |
+| `block` | Block any content unconditionally. Does not require `data_types`. |
+| `allow` | Allow any content unconditionally. Does not require `data_types`. |
+| `prevent` | Block the action only when a DLP data type violation is found. Requires at least one `data_types` entry. |
+| `ask` | Prompt the user for confirmation when a DLP violation is detected. |
+| `redact` | Redact the sensitive data and allow the rest. |
+| `detect` | Allow the action but log the detection. |
 
 ---
 
