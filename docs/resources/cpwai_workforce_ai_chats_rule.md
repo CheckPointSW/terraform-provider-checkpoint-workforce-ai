@@ -66,7 +66,7 @@ The `policy` JSON object supports the following fields:
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `event_type` | String | Yes | Event to apply DLP on: `file_upload`, `file_download`, `paste`, `prompt`, `copy`. |
-| `action` | String | Yes | DLP action: `prevent`, `ask`, `redact`, `detect`, `allow`, `block`. |
+| `action` | String | Yes | DLP action: `prevent`, `ask`, `redact`, `detect`, `allow`, `block`. **Note:** rules without `data_types` (any-text) can only use `block` or `allow`. |
 | `logging` | String | No | `"enabled"` or `"disabled"`. Default: `"enabled"`. |
 | `services_and_application` | Object | No | Service scope. See below. |
 | `data_types` | Array | No | DLP data types to detect. See below. |

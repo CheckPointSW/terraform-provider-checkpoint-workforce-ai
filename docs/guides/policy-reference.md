@@ -87,6 +87,8 @@ policy = jsonencode({
 | `allow` | Allow without restriction |
 | `block` | Block the action entirely |
 
+~> **Note:** Rules without `data_types` (any-text matching) can only use `block` or `allow` actions. The `detect`, `prevent`, `ask`, and `redact` actions require at least one data type to be specified.
+
 ---
 
 ## Access Rules
