@@ -230,7 +230,7 @@ func TestIntegration(t *testing.T) {
 		assertEqual(t, "updated desc", got2.Description, "Updated")
 
 		// UPDATE policy (change action)
-		updatedPolicy := map[string]interface{}{"action": "detect"}
+		updatedPolicy := map[string]interface{}{"action": "block"}
 		err = c.workforceai.PatchChatsPolicy(ctx, sdk.PatchPolicyRequest{
 			RuleID: rule.RuleID, Version: got2.Version, Policy: updatedPolicy,
 		})
@@ -242,8 +242,8 @@ func TestIntegration(t *testing.T) {
 		if err != nil {
 			t.Fatalf("read after policy patch failed: %v", err)
 		}
-		if got3.Policy["action"] != "detect" {
-			t.Fatalf("expected action=detect, got %v", got3.Policy["action"])
+		if got3.Policy["action"] != "block" {
+			t.Fatalf("expected action=block, got %v", got3.Policy["action"])
 		}
 
 		// DISABLE
@@ -545,7 +545,7 @@ func TestIntegration(t *testing.T) {
 		id := testID()
 		policy := map[string]interface{}{
 			"event_type": "file_upload",
-			"action":     "detect",
+			"action":     "block",
 			"logging":    "enabled",
 			"services_and_application": map[string]interface{}{"mode": "all"},
 		}
@@ -611,7 +611,7 @@ func TestIntegration(t *testing.T) {
 			Name:  "Source Test " + id,
 			Order: 0,
 			Policy: map[string]interface{}{
-				"event_type": "file_upload", "action": "detect", "logging": "enabled",
+				"event_type": "file_upload", "action": "block", "logging": "enabled",
 				"services_and_application": map[string]interface{}{"mode": "all"},
 			},
 			Source: []sdk.Assignment{{AssignmentID: "entire-org", DisplayName: "Entire Organization", AssignmentType: "ASSIGNMENT_TYPE_ENTIRE_ORG"}},
@@ -796,7 +796,7 @@ func TestIntegration(t *testing.T) {
 			Name:  "Rulebase List A " + id,
 			Order: 0,
 			Policy: map[string]interface{}{
-				"event_type": "file_upload", "action": "detect", "logging": "enabled",
+				"event_type": "file_upload", "action": "block", "logging": "enabled",
 				"services_and_application": map[string]interface{}{"mode": "all"},
 			},
 			Source: []sdk.Assignment{{AssignmentID: "entire-org", DisplayName: "Entire Organization", AssignmentType: "ASSIGNMENT_TYPE_ENTIRE_ORG"}},
@@ -851,7 +851,7 @@ func TestIntegration(t *testing.T) {
 			Name:  "Chats With Obj " + id,
 			Order: 0,
 			Policy: map[string]interface{}{
-				"event_type": "file_upload", "action": "detect", "logging": "enabled",
+				"event_type": "file_upload", "action": "block", "logging": "enabled",
 				"services_and_application": map[string]interface{}{"mode": "all"},
 			},
 			Source: []sdk.Assignment{{AssignmentID: "entire-org", DisplayName: "Entire Organization", AssignmentType: "ASSIGNMENT_TYPE_ENTIRE_ORG"}},
