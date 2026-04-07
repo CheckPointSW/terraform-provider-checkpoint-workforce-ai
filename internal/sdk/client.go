@@ -74,6 +74,7 @@ func (c *BaseClient) DoRequest(ctx context.Context, method, path string, body in
 		}
 		req.Header.Set("Content-Type", "application/json")
 		req.Header.Set("Authorization", "Bearer "+c.Token)
+		req.Header.Set("x-api-source", "terraform")
 
 		resp, err := c.HTTPClient.Do(req)
 		if err != nil {
