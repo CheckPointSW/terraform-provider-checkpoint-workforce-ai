@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"strings"
+	"bytes"
 	"sync"
 	"time"
 )
@@ -75,9 +75,13 @@ func (c *Client) refreshToken(ctx context.Context, creds Credentials) (string, e
 	}
 
 	url := c.baseURL + "/auth/external"
-	body := fmt.Sprintf(`{"clientId":"%s","accessKey":"%s"}`, creds.ClientID, creds.AccessKey)
+	payload := map[string]string{"clientId": creds.ClientID, "accessKey": creds.AccessKey}
+	bodyBytes, err := json.Marshal(payload)
+	if err != nil {
+		return "", fmt.Errorf("marshaling auth request: %w", err)
+	}
 
-	req, err := http.NewRequestWithContext(ctx, http.MethodPost, url, strings.NewReader(body))
+	req, err := http.NewRequestWithContext(ctx, http.MethodPost, url, bytes.NewReader(bodyBytes))
 	if err != nil {
 		return "", fmt.Errorf("creating auth request: %w", err)
 	}
