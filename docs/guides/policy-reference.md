@@ -178,7 +178,7 @@ policy = jsonencode({
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `action` | string | Yes | Action: `"block"`, `"allow"`, or `"ask"`. |
+| `action` | string | Yes | Action: `"block"` or `"allow"`. |
 | `logging` | string | No | `"enabled"` or `"disabled"`. |
 | `clients` | object | No | MCP client scope. |
 | `servers` | object | No | MCP server scope. |
