@@ -16,7 +16,8 @@ resource "cpwai_workforce_ai_chats_rule" "block_credit_cards" {
     action     = "prevent"
     logging    = "enabled"
     services_and_application = {
-      mode = "all"
+      mode     = "selected"
+      category = [{ category_id = 60531762 }] # Generative AI Tools: any AI app
     }
     data_types = [
       {
@@ -75,7 +76,7 @@ The `policy` JSON object supports the following fields:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `mode` | String | `"all"` (apply to all services) or `"selected"` (apply to listed services only). |
+| `mode` | String | Must be `"selected"`. Workforce AI rules reject `"all"`; to match any AI app, set `category = [{ category_id = 60531762 }]`. |
 | `genai_application` | Array | List of Workforce AI apps. Each: `{ id = <int>, mode = "all" \| "selected_account", accounts = [{ account_id = "..." }] }`. Use the [Apps Catalog API](https://app.swaggerhub.com/apis/Check-Point/checkpoint-ai-security/1.0.0#/Apps%20Catalog/search_apps_external_v1_apps_search_post) to look up GenAI application IDs. |
 | `category` | Array | List of URLF categories. Only the **Generative AI Tools** category (`category_id = 60531762`) is allowed — at most one entry. This acts as a wildcard that matches any Workforce AI application. |
 

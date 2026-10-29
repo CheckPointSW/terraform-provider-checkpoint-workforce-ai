@@ -72,7 +72,7 @@ Each element in the `source` list supports:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `mode` | String | `"all"` or `"selected"`. |
+| `mode` | String | Must be `"selected"`. Workforce AI rules reject `"all"`; to match any AI app, set `category = [{ category_id = 60531762 }]`. |
 | `genai_application` | Array | List of Workforce AI apps. Each: `{ id = <int>, mode = "all" \| "selected_account", accounts = [{ account_id = "..." }] }`. See the [AI Applications Catalog guide](../guides/ai-applications-catalog.md). |
 | `category` | Array | List of URLF categories. Only the **Generative AI Tools** category (`category_id = 60531762`) is allowed — at most one entry. This acts as a wildcard that matches any Workforce AI application. |
 

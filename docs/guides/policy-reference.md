@@ -310,7 +310,7 @@ services_and_application = {
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `mode` | string | `"all"` — apply to all services; `"selected"` — apply to listed services only |
+| `mode` | string | `"all"` — apply to all services; `"selected"` — apply to listed services only. **Workforce AI rules must use `"selected"`** — `"all"` is rejected; to match any AI app, use `category = [{ category_id = 60531762 }]`. |
 | `domain` | array | **Browse only.** List of domains with `domain` (string) and optional `match_mode` |
 | `url` | array | **Browse only.** List of URLs with `url` (string) |
 | `genai_application` | array | **GenAI only.** List of Workforce AI app IDs with optional account selection. See the [AI Applications Catalog guide](ai-applications-catalog.md). |
