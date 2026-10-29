@@ -107,7 +107,7 @@ type AccessPolicy struct {
 
 // AgentsPolicy represents the policy for Agents/MCP rules.
 type AgentsPolicy struct {
-	Action  *string        `json:"action,omitempty"` // "block", "allow", "ask"
+	Action  *string        `json:"action,omitempty"` // "block", "allow"
 	Logging *string        `json:"logging,omitempty"`
 	Clients *ClientsConfig `json:"clients,omitempty"`
 	Servers *ServersConfig `json:"servers,omitempty"`

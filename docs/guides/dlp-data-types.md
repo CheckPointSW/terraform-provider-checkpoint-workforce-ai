@@ -10,7 +10,10 @@ policy = jsonencode({
   event_type = "file_upload"
   action     = "prevent"
   logging    = "enabled"
-  services_and_application = { mode = "all" }
+  services_and_application = {
+    mode     = "selected"
+    category = [{ category_id = 60531762 }] # Generative AI Tools: any AI app
+  }
   data_types = [
     {
       id   = "cf0523c1-537e-4a4b-8bb8-084b7b9e0b45"

@@ -72,7 +72,7 @@ Each element in the `source` list supports:
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `action` | String | Yes | Action: `"block"`, `"allow"`, or `"ask"`. |
+| `action` | String | Yes | Action: `"block"` or `"allow"`. |
 | `logging` | String | No | `"enabled"` or `"disabled"`. |
 | `clients` | Object | No | MCP client scope. See [clients](#clients) below. |
 | `servers` | Object | No | MCP server scope. See [servers](#servers) below. |

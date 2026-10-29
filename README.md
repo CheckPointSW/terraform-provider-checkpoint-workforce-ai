@@ -104,7 +104,8 @@ resource "cpwai_workforce_ai_chats_rule" "block_credit_cards" {
     action     = "prevent"
     logging    = "enabled"
     services_and_application = {
-      mode = "all"
+      mode     = "selected"
+      category = [{ category_id = 60531762 }] # Generative AI Tools: any AI app
     }
     data_types = [
       {

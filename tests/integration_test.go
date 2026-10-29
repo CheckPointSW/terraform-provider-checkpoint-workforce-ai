@@ -168,6 +168,15 @@ func testID() string {
 	return fmt.Sprintf("%d", rand.Intn(99999))
 }
 
+// anyAIApp scopes a Workforce AI rule to every AI app. GenAI rules reject
+// mode "all"; the Generative AI Tools category (60531762) is the wildcard.
+func anyAIApp() map[string]interface{} {
+	return map[string]interface{}{
+		"mode":     "selected",
+		"category": []map[string]interface{}{{"category_id": 60531762}},
+	}
+}
+
 // ---------- tests ----------
 
 func TestIntegration(t *testing.T) {
@@ -181,12 +190,10 @@ func TestIntegration(t *testing.T) {
 	// ── Phase 2: WorkforceAI Chats Rule CRUD ──
 	t.Run("WorkforceAI_Chats_Rule", func(t *testing.T) {
 		policy := map[string]interface{}{
-			"event_type": "file_upload",
-			"action":     "prevent",
-			"logging":    "enabled",
-			"services_and_application": map[string]interface{}{
-				"mode": "all",
-			},
+			"event_type":               "file_upload",
+			"action":                   "prevent",
+			"logging":                  "enabled",
+			"services_and_application": anyAIApp(),
 			"data_types": []map[string]interface{}{
 				{"id": "cf0523c1-537e-4a4b-8bb8-084b7b9e0b45", "name": "Credit Card Number", "type": "PRE_DEFINED"},
 			},
@@ -612,7 +619,7 @@ func TestIntegration(t *testing.T) {
 			Order: 0,
 			Policy: map[string]interface{}{
 				"event_type": "file_upload", "action": "block", "logging": "enabled",
-				"services_and_application": map[string]interface{}{"mode": "all"},
+				"services_and_application": anyAIApp(),
 			},
 			Source: []sdk.Assignment{{AssignmentID: "entire-org", DisplayName: "Entire Organization", AssignmentType: "ASSIGNMENT_TYPE_ENTIRE_ORG"}},
 		})
@@ -707,7 +714,7 @@ func TestIntegration(t *testing.T) {
 			Order: 0,
 			Policy: map[string]interface{}{
 				"action": "block", "logging": "enabled",
-				"services_and_application": map[string]interface{}{"mode": "all"},
+				"services_and_application": anyAIApp(),
 			},
 			Source: []sdk.Assignment{{AssignmentID: "entire-org", DisplayName: "Entire Organization", AssignmentType: "ASSIGNMENT_TYPE_ENTIRE_ORG"}},
 		})
@@ -724,7 +731,7 @@ func TestIntegration(t *testing.T) {
 			Version: got.Version,
 			Policy: map[string]interface{}{
 				"action": "allow", "logging": "disabled",
-				"services_and_application": map[string]interface{}{"mode": "all"},
+				"services_and_application": anyAIApp(),
 			},
 		})
 		if err != nil {
@@ -797,7 +804,7 @@ func TestIntegration(t *testing.T) {
 			Order: 0,
 			Policy: map[string]interface{}{
 				"event_type": "file_upload", "action": "block", "logging": "enabled",
-				"services_and_application": map[string]interface{}{"mode": "all"},
+				"services_and_application": anyAIApp(),
 			},
 			Source: []sdk.Assignment{{AssignmentID: "entire-org", DisplayName: "Entire Organization", AssignmentType: "ASSIGNMENT_TYPE_ENTIRE_ORG"}},
 		})
@@ -806,7 +813,7 @@ func TestIntegration(t *testing.T) {
 			Order: 1,
 			Policy: map[string]interface{}{
 				"event_type": "paste", "action": "allow", "logging": "enabled",
-				"services_and_application": map[string]interface{}{"mode": "all"},
+				"services_and_application": anyAIApp(),
 			},
 			Source: []sdk.Assignment{{AssignmentID: "entire-org", DisplayName: "Entire Organization", AssignmentType: "ASSIGNMENT_TYPE_ENTIRE_ORG"}},
 		})
